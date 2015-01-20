@@ -17,8 +17,8 @@ object Utils {
     private val uriDateFormat: DateFormat =
         new SimpleDateFormat("yyyyMMdd")
 
-    def dateToISO8601(date: Date): String = isoDateFormat.format(date)
-    def parseISO8601(date: String): Try[Date] = Try(isoDateFormat.parse(date))
+    def dateToIso8601(date: Date): String = isoDateFormat.format(date)
+    def parseIso8601(date: String): Try[Date] = Try(isoDateFormat.parse(date))
 
     def dateToUriFormat(date: Date): String = uriDateFormat.format(date)
     def parseUriDate(date: String): Try[Date] = Try(uriDateFormat.parse(date))
