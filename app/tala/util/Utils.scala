@@ -21,11 +21,7 @@ object Utils {
     def parseISO8601(date: String): Try[Date] = Try(isoDateFormat.parse(date))
 
     def dateToUriFormat(date: Date): String = uriDateFormat.format(date)
-    def parseUrlDate(date: String): Option[Date] = try {
-        Some(uriDateFormat.parse(date))
-    } catch {
-        case _: Throwable => None
-    }
+    def parseUriDate(date: String): Try[Date] = Try(uriDateFormat.parse(date))
 
     private val md5inst = MessageDigest.getInstance("MD5")
     def md5(msg: String): String = {
