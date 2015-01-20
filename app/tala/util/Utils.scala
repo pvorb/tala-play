@@ -37,7 +37,7 @@ object Utils {
         String.format("%0"+(hashBytes.length << 1)+"X", hashInt)
     }
 
-    def floatToDate(date: Double): Date = new Date(date.toLong * 1000L)
+    def floatToDate(date: Double): Date = new Date((date * 1000d).toLong)
     def dateToFloat(date: Date): Double = date.getTime / 1000d
     def dateToFloat(date: Long): Double = date / 1000d
 }
