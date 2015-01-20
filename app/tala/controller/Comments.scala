@@ -2,21 +2,22 @@ package tala.controller
 
 import java.sql.Connection
 import java.sql.PreparedStatement
+import java.sql.SQLException
+
 import scala.collection.immutable.VectorBuilder
 import scala.concurrent.Future
+import scala.util.Failure
+import scala.util.Success
+
 import play.api._
 import play.api.db.DB
 import play.api.libs.json._
-import play.api.libs.json.Reads._
 import play.api.mvc._
 import tala.model.CommentRequest
 import tala.model.CommentResult
 import tala.util.Contexts
 import tala.util.Utils
 import tala.util.Sanitization
-import scala.util.Failure
-import scala.util.Success
-import java.sql.SQLException
 
 object Comments extends Controller {
     import play.api.Play.current
@@ -87,8 +88,6 @@ object Comments extends Controller {
 
     def post(uri: String): Action[AnyContent] = Action.async { request =>
         Future {
-            println(request.body.asText)
-
             request.body.asJson.map {
                 case comment: JsObject =>
                     Sanitization.sanitizeComment(comment)

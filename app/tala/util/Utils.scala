@@ -6,8 +6,8 @@ import java.security.MessageDigest
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Date
-import java.util.HashMap
 import java.util.TimeZone
+
 import scala.util.Try
 
 object Utils {

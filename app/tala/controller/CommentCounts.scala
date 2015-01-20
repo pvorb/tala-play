@@ -15,15 +15,24 @@ object CommentCounts extends Controller {
     def get(uri: String) = Action.async {
         Future {
             val count: Long = DB.withConnection { conn =>
-                val stmt = conn.prepareStatement(
-                    """|SELECT COUNT(*)
-                       |FROM threads, comments
-                       |WHERE
-                       |  threads.uri = ? AND
-                       |  threads.id = comments.tid;
-                       |""".stripMargin)
-                stmt.setQueryTimeout(30) // TODO configurable timeout?
-                stmt.setString(1, uri)
+                val stmt = if (uri != "") {
+                    val stmt = conn.prepareStatement(
+                        """|SELECT COUNT(*)
+                           |FROM threads, comments
+                           |WHERE
+                           |  threads.uri = ? AND
+                           |  threads.id = comments.tid;
+                           |""".stripMargin)
+                    stmt.setString(1, uri)
+                    stmt
+                } else {
+                    val stmt = conn.prepareStatement(
+                        """|SELECT COUNT(*)
+                           |FROM comments;
+                           |""".stripMargin)
+                    stmt
+                }
+                stmt.setQueryTimeout(30)
                 val results = stmt.executeQuery()
 
                 // get the count from the result

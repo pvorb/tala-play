@@ -1,18 +1,8 @@
 package tala.util
 
-import java.net.MalformedURLException
-import java.net.URISyntaxException
 import java.net.URL
 
-import scala.util.Failure
-import scala.util.Success
-import scala.util.Try
-
-import play.api.libs.functional.syntax._
-import play.api.libs.json._
 import play.api.libs.json.JsObject
-import play.api.libs.json.Reads._
-import play.api.mvc.AnyContent
 
 import org.owasp.encoder.Encode
 import org.owasp.html.HtmlPolicyBuilder

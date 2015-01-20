@@ -1,15 +1,15 @@
 package tala.model
 
+import java.sql.SQLException
+import java.util.Date
+
+import scala.compat.Platform
 import scala.concurrent.ExecutionContext
 import scala.concurrent.Future
-import scala.util.Try
+
 import play.api.db.DB
+
 import tala.util.Utils
-import scala.compat.Platform
-import java.sql.SQLException
-import scala.util.Success
-import scala.util.Failure
-import java.util.Date
 
 case class CommentRequest(parent: Long, text: String, threadTitle: String,
                           author: String, emailHash: String, website: String) {
