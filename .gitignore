@@ -1,0 +1,40 @@
+*.pydevproject
+.metadata
+.gradle
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+/.settings/
+.loadpath
+
+# Eclipse Core
+/.project
+
+# Locally stored "Eclipse launch configurations"
+/*.launch
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# sbteclipse plugin
+/.target
+
+# Play!
+bin/
+/db
+.eclipse
+/lib/
+/logs/
+/modules
+/project/project
+/project/target
+/target
+tmp/
+test-result
+server.pid
+*.iml
+*.eml
+/dist/
+.cache

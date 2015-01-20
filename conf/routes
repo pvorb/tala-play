@@ -1,0 +1,4 @@
+GET    /api/comment         tala.controller.Comments.get(uri: String ?= "")
+POST   /api/comment         tala.controller.Comments.post(uri: String ?= "")
+
+GET    /api/comment-count   tala.controller.CommentCounts.get(uri: String ?= "")
